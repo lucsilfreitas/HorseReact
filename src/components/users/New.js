@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
+
 
 export default class UserFormNew extends Component {
 
@@ -17,10 +19,12 @@ export default class UserFormNew extends Component {
   }
 
   handleSubmit = event => {
-    event.preventDefaut();
+    event.preventDefault();
     api.post('/users', this.state)
       .then(res => {
         console.log(res);
+      }).catch(error => {
+        console.log(error)
       })
   }
 
@@ -51,7 +55,7 @@ export default class UserFormNew extends Component {
           </div>
 
           <button type="submit" className="btn btn-primary">Enviar</button>
-          <button type="submit" className="btn btn-primary" to={`/users`}>Lista</button>
+          <Link to={`/users`}>Voltar</Link>
         </form>
       </div>
     )

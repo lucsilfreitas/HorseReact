@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
-export default class UserForm extends Component {
+export default class UserFormEdit extends Component {
 
   state = {
     _user: {
